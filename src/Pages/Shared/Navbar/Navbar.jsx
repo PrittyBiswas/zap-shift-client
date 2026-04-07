@@ -3,10 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Logo from "../../../components/Logo/Logo";
 import useAuth from "../../../Hooks/useAuth";
+import { IoIosChatbubbles } from "react-icons/io";
+import { RiRobot3Fill } from "react-icons/ri";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const { user, logOut } = useAuth();
+
 
     const handleLogOut = () => {
         logOut().catch((error) => console.log(error));
@@ -72,10 +75,13 @@ const Navbar = () => {
                     >
                         Be a rider
                     </Link>
-
-                    <button className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-primary">
-                        <ArrowUpRight size={20} />
-                    </button>
+{/* 
+                    <button
+                        onClick={() => setOpen(true)}
+                        className="flex items-center gap-2 px-1 py-1 bg-primary border-2 rounded-full text-black"
+                    >
+                        <RiRobot3Fill size={25}></RiRobot3Fill>
+                    </button> */}
                 </div>
 
                 {/* Mobile Menu Button */}

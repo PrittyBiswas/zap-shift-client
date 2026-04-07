@@ -14,6 +14,8 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import MyParcels from "../Pages/Dashboard/MyParcels/MyParcels";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import Service from "../Pages/Service/Service";
+import Chatbot from "../Pages/ChatBot/Chatbot";
+
 
 
 
@@ -48,7 +50,8 @@ export const router = createBrowserRouter([
       {
         path: 'rider',
         element: <Private><Rider></Rider></Private>
-      }
+      },
+
 
     ]
   },
