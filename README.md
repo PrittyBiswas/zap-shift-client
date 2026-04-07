@@ -1,16 +1,77 @@
-# React + Vite
+📌 Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Zap Shift is a full-stack logistics platform that connects Users, Admins, and Riders to ensure smooth parcel delivery operations across all districts.
 
-Currently, two official plugins are available:
+It focuses on:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚡ Fast delivery workflows
+🔐 Secure OTP-based handoffs
+📊 Transparent pricing & commissions
+🌍 Nationwide coverage
+👥 User Roles & Responsibilities
+Role	Key Responsibilities	Benefits
+User	- Book parcels
+- Pay charges
+- Track status
+- Review service	- Real-time tracking
+- Feedback system
+Admin	- Assign riders
+- Manage routes
+- Monitor warehouses
+- Oversee operations	- Full system control
+Rider	- Pickup & deliver parcels
+- Update delivery status
+- OTP verification
+- Warehouse transfer	- Earn per delivery
+💰 Pricing Structure
+Parcel Type	Weight	Within City	Outside City/District
+Document	Any	৳60	৳80
+Non-Document	Up to 3kg	৳110	৳150
+Non-Document	Above 3kg	+৳40/kg	+৳40/kg + ৳40 extra
+🚀 Features
+📦 Parcel Booking System
+📍 Real-time Tracking
+🔐 OTP-Based Secure Delivery
+👨‍💼 Role-Based Dashboard (User/Admin/Rider)
+🏢 Warehouse Management
+📊 Automated Pricing Calculation
+💸 Transparent Commission System
+🌍 Nationwide Delivery (64 Districts)
+🔄 Delivery Workflow
+User creates a parcel order
+Admin assigns a rider
+Rider picks up parcel
+Parcel goes to warehouse (if needed)
+Rider delivers parcel
+OTP verification confirms delivery
+Status updated in real-time
+🧑‍💻 Tech Stack
 
-## React Compiler
+(Update this based on your actual stack)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Frontend:
 
-## Expanding the ESLint configuration
+React.js
+Tailwind CSS
+Axios
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Backend:
+
+Node.js
+Express.js
+
+Database:
+
+MongoDB
+
+
+Authentication:
+
+JWT / Firebase 
+
+
+📊 Commission Structure
+🏙️ Same City Delivery → 80% earnings
+🌍 Outside City Delivery → 60% earnings
+
+
