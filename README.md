@@ -8,6 +8,8 @@ It focuses on:
 🔐 Secure OTP-based handoffs
 📊 Transparent pricing & commissions
 🌍 Nationwide coverage
+
+
 👥 User Roles & Responsibilities
 Role	Key Responsibilities	Benefits
 User	- Book parcels
@@ -23,11 +25,14 @@ Rider	- Pickup & deliver parcels
 - Update delivery status
 - OTP verification
 - Warehouse transfer	- Earn per delivery
+
+  
 💰 Pricing Structure
 Parcel Type	Weight	Within City	Outside City/District
 Document	Any	৳60	৳80
 Non-Document	Up to 3kg	৳110	৳150
 Non-Document	Above 3kg	+৳40/kg	+৳40/kg + ৳40 extra
+
 🚀 Features
 📦 Parcel Booking System
 📍 Real-time Tracking
@@ -37,6 +42,8 @@ Non-Document	Above 3kg	+৳40/kg	+৳40/kg + ৳40 extra
 📊 Automated Pricing Calculation
 💸 Transparent Commission System
 🌍 Nationwide Delivery (64 Districts)
+
+
 🔄 Delivery Workflow
 User creates a parcel order
 Admin assigns a rider
@@ -45,6 +52,8 @@ Parcel goes to warehouse (if needed)
 Rider delivers parcel
 OTP verification confirms delivery
 Status updated in real-time
+
+
 🧑‍💻 Tech Stack
 
 (Update this based on your actual stack)
