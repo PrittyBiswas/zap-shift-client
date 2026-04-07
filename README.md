@@ -1,86 +1,61 @@
-📌 Overview
+# Zap Shift Resources
 
-Zap Shift is a full-stack logistics platform that connects Users, Admins, and Riders to ensure smooth parcel delivery operations across all districts.
+Welcome to **Zap Shift Resources**!  
+A curated collection of tools, guides, and assets for developing robust parcel management systems.
 
-It focuses on:
+---
 
-⚡ Fast delivery workflows
-🔐 Secure OTP-based handoffs
-📊 Transparent pricing & commissions
-🌍 Nationwide coverage
+## 📊 System Overview Table
 
+| Role            | Key Responsibilities                                                                      | Earnings/Benefits                              |
+| --------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| **User**        | - Book parcels<br>- Pay charges<br>- Track status<br>- Review service                     | - Real-time tracking<br>- Feedback opportunity |
+| **Admin**       | - Assign agents<br>- Manage routing<br>- Oversee warehouses<br>- Monitor operations       | - System control<br>- Operational oversight    |
+| **Agent/Rider** | - Collect/Deliver parcels<br>- Update status<br>- OTP confirmation<br>- Warehouse handoff | - ৳20 per delivery                             |
 
-👥 User Roles & Responsibilities
-Role	Key Responsibilities	Benefits
-User	- Book parcels
-- Pay charges
-- Track status
-- Review service	- Real-time tracking
-- Feedback system
-Admin	- Assign riders
-- Manage routes
-- Monitor warehouses
-- Oversee operations	- Full system control
-Rider	- Pickup & deliver parcels
-- Update delivery status
-- OTP verification
-- Warehouse transfer	- Earn per delivery
+---
 
-  
-💰 Pricing Structure
-Parcel Type	Weight	Within City	Outside City/District
-Document	Any	৳60	৳80
-Non-Document	Up to 3kg	৳110	৳150
-Non-Document	Above 3kg	+৳40/kg	+৳40/kg + ৳40 extra
+## 🛒 Pricing Structure
 
-🚀 Features
-📦 Parcel Booking System
-📍 Real-time Tracking
-🔐 OTP-Based Secure Delivery
-👨‍💼 Role-Based Dashboard (User/Admin/Rider)
-🏢 Warehouse Management
-📊 Automated Pricing Calculation
-💸 Transparent Commission System
-🌍 Nationwide Delivery (64 Districts)
+| Parcel Type      | Weight    | Within City | Outside City/District |
+| ---------------- | --------- | ----------- | --------------------- |
+| **Document**     | Any       | ৳60         | ৳80                   |
+| **Non-Document** | Up to 3kg | ৳110        | ৳150                  |
+| **Non-Document** | >3kg      | +৳40/kg     | +৳40/kg +৳40 extra    |
 
+---
 
-🔄 Delivery Workflow
-User creates a parcel order
-Admin assigns a rider
-Rider picks up parcel
-Parcel goes to warehouse (if needed)
-Rider delivers parcel
-OTP verification confirms delivery
-Status updated in real-time
+## 🚚 Delivery Workflow
 
+```mermaid
+flowchart TD
+    A[User Adds Parcel to System] -->|Status: Unpaid| B[User Pays for Parcel Delivery]
+    B -->|Status: Paid| C[Admin Assigns Pickup & Delivery Riders]
+    C -->|Status: Ready-to-Pickup| D[Rider Picks Up Parcel]
+    D -->|Status: In-Transit| E{Within City?}
 
-🧑‍💻 Tech Stack
+    E -- Yes --> F1[Rider Out for Delivery]
+    F1 -->|Status: Ready-for-Delivery| G1[Rider Delivers Parcel]
+    G1 -->|Status: Delivered| H1[Parcel Delivery Completed]
 
-(Update this based on your actual stack)
+    E -- No --> F2[Parcel Reaches Warehouse]
+    F2 -->|Status: Reached-Warehouse| G2[Parcel Shipped to Destination]
+    G2 -->|Status: Shipped| H2[Rider Out for Delivery]
+    H2 -->|Status: Ready-for-Delivery| I2[Rider Delivers Parcel]
+    I2 -->|Status: Delivered| J2[Parcel Delivery Completed]
 
-Frontend:
+```
 
-React.js
-Tailwind CSS
-Axios
+---
 
-Backend:
+## 🗂️ Key Features
 
-Node.js
-Express.js
+- **Automated Pricing & Tracking**
+- **Role-based Access & Workflow**
+- **OTP-based Secure Delivery**
+- **Nationwide Coverage (64 districts)**
+- **Transparent Commission Structure**
 
-Database:
+---
 
-MongoDB
-
-
-Authentication:
-
-JWT / Firebase 
-
-
-📊 Commission Structure
-🏙️ Same City Delivery → 80% earnings
-🌍 Outside City Delivery → 60% earnings
-
-
+---
