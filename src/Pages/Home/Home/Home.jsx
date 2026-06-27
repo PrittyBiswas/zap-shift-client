@@ -9,7 +9,10 @@ import Reviews from '../Reviews/Reviews';
 import Faq from '../Faq/Faq';
 
 
-const reviewsPromise = fetch('/public/reviews.json').then(res => res.json());
+const reviewsPromise = fetch('/reviews.json').then(res => {
+    if (!res.ok) throw new Error(`Failed to fetch reviews: ${res.status}`);
+    return res.json();
+});
 
 
 const Home = () => {

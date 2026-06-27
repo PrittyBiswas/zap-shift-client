@@ -14,16 +14,20 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import MyParcels from "../Pages/Dashboard/MyParcels/MyParcels";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import Service from "../Pages/Service/Service";
-import Chatbot from "../Pages/ChatBot/Chatbot";
+import GenericErrorPage from "../components/ErrorPages/GenericErrorPage";
+import LoaderErrorPage from "../components/ErrorPages/LoaderErrorPage";
 
-
-
-
+const safeJsonLoader = async (url) => {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+  return await res.json();
+};
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayout,
+    errorElement: <GenericErrorPage />,
     children: [
       {
         index: true,
@@ -36,12 +40,14 @@ export const router = createBrowserRouter([
       {
         path: 'coverage',
         Component: Coverage,
-        loader: () => fetch('/public/services-center.json').then(res => res.json())
+        loader: () => safeJsonLoader('/services-center.json'),
+        errorElement: <LoaderErrorPage />
       },
       {
         path: 'SendParcel',
         element: <Private><SendParcel></SendParcel> </Private>,
-        loader: () => fetch('/public/services-center.json').then(res => res.json())
+        loader: () => safeJsonLoader('/services-center.json'),
+        errorElement: <LoaderErrorPage />
       },
       {
         path: 'about-us',
@@ -51,13 +57,12 @@ export const router = createBrowserRouter([
         path: 'rider',
         element: <Private><Rider></Rider></Private>
       },
-
-
     ]
   },
   {
     path: '/',
     Component: AuthLayout,
+    errorElement: <GenericErrorPage />,
     children: [
       {
         path: 'login',
@@ -72,6 +77,7 @@ export const router = createBrowserRouter([
   {
     path: 'dashboard',
     element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    errorElement: <GenericErrorPage />,
     children: [
       {
         path: 'my-parcels',
