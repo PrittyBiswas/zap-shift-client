@@ -8,17 +8,17 @@ import SocialLogin from './SocialLogin/SocialLogin';
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { registerUser } = useAuth();
+    const { signInUser } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
 
 
     const singInUser = (data) => {
         console.log("After Submit", data);
-        registerUser(data.emil, data.password)
+        signInUser(data.email, data.password)
             .then(result => {
                 console.log(result.user);
-                navigate(location?.state ||'/');
+                navigate(location?.state || '/');
             })
             .catch(error => {
                 console.log(error);
