@@ -7,7 +7,8 @@ import {
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
-    updateProfile
+    updateProfile,
+    sendPasswordResetEmail
 } from 'firebase/auth';
 import { auth } from '../../Firebase/firebase.init';
 
@@ -47,6 +48,11 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser , profile)
     }
 
+    // Reset Password
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email);
+    };
+
 
     // Track logged-in user
     useEffect(() => {
@@ -65,7 +71,8 @@ const AuthProvider = ({ children }) => {
         signInUser,
         signInGoogle,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        resetPassword
     };
 
     return (

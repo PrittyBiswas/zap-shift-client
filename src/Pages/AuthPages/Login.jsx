@@ -2,15 +2,52 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 import SocialLogin from './SocialLogin/SocialLogin';
 
 const Login = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const { signInUser } = useAuth();
+    const { register, handleSubmit, getValues, formState: { errors } } = useForm();
+    const { signInUser, resetPassword } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
+
+    const handleForgotPassword = () => {
+        const email = getValues("email");
+        Swal.fire({
+            title: 'Reset Password',
+            text: 'Enter your email address to receive a password reset link:',
+            input: 'email',
+            inputValue: email || '',
+            inputPlaceholder: 'name@example.com',
+            showCancelButton: true,
+            confirmButtonText: 'Send Reset Link',
+            showLoaderOnConfirm: true,
+            preConfirm: (inputEmail) => {
+                if (!inputEmail) {
+                    Swal.showValidationMessage('Email is required');
+                    return false;
+                }
+                return resetPassword(inputEmail)
+                    .then(() => {
+                        return inputEmail;
+                    })
+                    .catch(error => {
+                        Swal.showValidationMessage(`Error: ${error.message}`);
+                    });
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Email Sent!',
+                    text: `A password reset email has been sent to ${result.value}. Please check your inbox.`,
+                });
+            }
+        });
+    };
 
 
     const singInUser = (data) => {
@@ -67,7 +104,7 @@ const Login = () => {
                     )}
 
                     <div>
-                        <a className="underline cursor-pointer">Forgot password?</a>
+                        <a onClick={handleForgotPassword} className="underline cursor-pointer">Forgot password?</a>
                     </div>
 
                     <button type="submit" className="btn bg-primary mt-4 text-black">

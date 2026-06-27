@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Logo from "../../../components/Logo/Logo";
 import useAuth from "../../../Hooks/useAuth";
@@ -106,11 +106,11 @@ const Navbar = () => {
                 </button>
 
                 <ul className="flex flex-col gap-6 mt-10 text-secondary">
-                    <NavLink to="/services" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Services</NavLink>
+                    <NavLink to="/service" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Services</NavLink>
                     <NavLink to="/coverage" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Coverage</NavLink>
                     <NavLink to="/about-us" onClick={() => setOpen(false)} className={mobileNavLinkClass}>About Us</NavLink>
                     <NavLink to="/pricing" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Pricing</NavLink>
-                    <NavLink to="/be-a-rider" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Be a Rider</NavLink>
+                    <NavLink to="/rider" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Be a Rider</NavLink>
                 </ul>
 
                 <div className="flex flex-col gap-3 mt-8">
