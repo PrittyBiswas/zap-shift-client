@@ -71,7 +71,13 @@ const SendParcel = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.post('/parcels', { data, cost })
+                axiosSecure.post('/parcels', { 
+                    ...data, 
+                    cost, 
+                    deliveryStatus: 'pending', 
+                    paymentStatus: 'unpaid', 
+                    createdAt: new Date().toISOString() 
+                })
                     .then(res => {
                         console.log('Parcel booked:', res.data);
                         if (res.data.insertedId) {
@@ -178,8 +184,8 @@ const SendParcel = () => {
                     {/* Receiver */}
                     <div className="p-6 shadow rounded-xl">
                         <h3 className="font-bold mb-4">Receiver Details</h3>
-                        <input {...register("senderName",{ required: true })} placeholder="Name" className="input input-bordered w-full mb-3" />
-                        <input {...register("senderPhone",{ required: true })} placeholder="Phone" className="input input-bordered w-full mb-3" />
+                        <input {...register("receiverName",{ required: true })} placeholder="Name" className="input input-bordered w-full mb-3" />
+                        <input {...register("receiverPhone",{ required: true })} placeholder="Phone" className="input input-bordered w-full mb-3" />
 
                         <select {...register("receiverRegion",{ required: true })} className="select select-bordered w-full mb-3">
                             <option value="">Receiver Region</option>

@@ -66,7 +66,7 @@ const Register = () => {
                         placeholder="Your Name"
                     />
                     {/* Photo image Field */}
-                    <label className="label">Name</label>
+                    <label className="label">Profile Picture</label>
                     <input
                         type="file"
                         {...register("photo")}

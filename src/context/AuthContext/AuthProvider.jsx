@@ -22,25 +22,41 @@ const AuthProvider = ({ children }) => {
     // Register
     const registerUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password)
+            .catch(error => {
+                setLoading(false);
+                throw error;
+            });
     };
 
     // Email login
     const signInUser = (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(auth, email, password)
+            .catch(error => {
+                setLoading(false);
+                throw error;
+            });
     };
 
     // Google login
     const signInGoogle = () => {
         setLoading(true);
-        return signInWithPopup(auth, googleProvider);
+        return signInWithPopup(auth, googleProvider)
+            .catch(error => {
+                setLoading(false);
+                throw error;
+            });
     };
 
     // Logout
     const logOut = () => {
         setLoading(true);
-        return signOut(auth);
+        return signOut(auth)
+            .catch(error => {
+                setLoading(false);
+                throw error;
+            });
     };
 
     // Update User
